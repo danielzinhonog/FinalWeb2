@@ -19,10 +19,15 @@ public class UsuarioDao {
 		try {
 			PreparedStatement ps = cnx.prepareStatement(sql);
 			
+			System.out.println("usuario " + usuario.getUsuario());
+			System.out.println("usuario " + usuario.getSenha());
+			
 			ps.setString(1, usuario.getUsuario());
 			ps.setString(2, usuario.getSenha());
 			
 			ResultSet rs = ps.executeQuery();
+			
+			System.out.println("nao achei o usuario ");
 			
 			while(rs.next()) {
 				u.setId(rs.getInt("id"));
@@ -30,6 +35,7 @@ public class UsuarioDao {
 				u.setNome(rs.getString("nome"));
 				u.setSenha(rs.getString("senha"));
 				u.setEmail(rs.getString("email"));
+				System.out.println("usuario " + u.getUsuario());
 			}
 		
 		} catch (SQLException e) {
@@ -67,5 +73,25 @@ public class UsuarioDao {
 		}
 		
 		return listaDeUsuarios;
+	}
+	
+	public boolean incluir(Usuario usuario) {
+		Connection cnx = Dao.getConexao();
+		String sql = "INSERT INTO cadastro2(usuario, senha, email) VALUES(?, ?, ?)";
+		boolean retorno = true;
+		
+		try {
+			PreparedStatement ps = cnx.prepareStatement(sql);
+			
+			ps.setString(1, usuario.getUsuario());
+			ps.setString(2, usuario.getSenha());
+			ps.setString(3, usuario.getEmail());
+			
+			ps.execute();
+		} catch (SQLException e) {
+			retorno = false;
+		}
+		
+		return retorno;
 	}
 }

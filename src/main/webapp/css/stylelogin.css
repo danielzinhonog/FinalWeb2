@@ -1,76 +1,137 @@
-body {
-    background-color: #fff;
-    font-family: Arial;
+@charset "ISO-8859-1";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
 }
 
-.container {
-    background-color:#fff;
-    padding: 20px;
-    margin: auto;
-    margin-top: 200px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url("imagem/cinema.jpg")no-repeat;
+    background-position: center;
+    background-size: cover
+}
+
+.form-box {
+    position: relative;
     width: 400px;
-    font-style: initial;
-    border: solid #ccc;
+    height: 450px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
 }
 
-h1 {
+.form-box img {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+}  
+
+h2 {
+    font-size: 2em;
+    color: black;
     text-align: center;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+.inputbox {
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid black;
 }
 
-label {
-    margin-top: 10px;
+.inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
 }
 
-input[type=text], input[type=password] {
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: none;
-    border: 1px solid #ccc;
+input:focus ~ label,
+input:valid ~ label {
+    top: -5px;
 }
 
-input[type=submit] {
-    background-color: darkgreen;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    font-style: initial;
-    border: 1px solid #ccc;
-    margin-top: 15px;
-}
-
-input[type=submit]:hover {
-    animation: pulse 0.5s infinite alternate;
-}
-
-@keyframes pulse {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.025);
-    }
-}
-
-.rodape {
-    display: flex;
+.inputbox input {
+    width: 100%;
     height: 50px;
-    background-color: darkgreen;
-    color: #fff;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: black;
+}
+
+.inputbox ion-icon {
+    position: absolute;
+    right: 8px;
+    color: black;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+.forget {
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: black;
+    display: flex;
     justify-content: center;
-    font-family: Arial;
-    font-weight: bold;
-    align-items: center;
-    margin-top: 140px;
+}
+
+.forget label input {
+    margin-right: 3px;
+}
+
+.forget label a {
+    color: black;
+    text-decoration: none;
+}
+
+.forget label a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #d35400;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.register {
+    font-size: .9em;
+    color: black;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register p a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
 }
